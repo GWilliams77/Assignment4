@@ -1,0 +1,18 @@
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csprojResolveAssemblyReference.cache
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.frmAssigment3.resources
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.Properties.Resources.resources
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.GenerateResource.Cache
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\Le\Desktop\CIS 160\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csprojResolveAssemblyReference.cache
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.frmAssigment3.resources
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.Properties.Resources.resources
+C:\Users\Attickus\Documents\Visual Studio 2015\Projects\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.GenerateResource.Cache
