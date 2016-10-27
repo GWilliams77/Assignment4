@@ -13,15 +13,17 @@ using System.Windows.Forms;
 
 namespace Assignment3
 {
-    public partial class frmAssigment3 : Form
+    public partial class frmAssigment4 : Form
     {
         //Global Constant and variable
         const decimal decTAX_RATE = 0.087m;
         private decimal decTOTAL; // 0.0m
         private decimal decTOTAL_DUE; // 0.0m
-        public frmAssigment3()
+        public frmAssigment4()
         {
             InitializeComponent();
+            //Current Date
+            txtDate.Text = DateTime.Now.ToString("MM/dd/yyyy");
         }
 
         private void btnExit_Click(object sender, EventArgs e)
@@ -68,7 +70,7 @@ namespace Assignment3
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             //Disable the customer group box when enter text in description
-            grpCustomer.Enabled = false;
+            rdoMoney.Enabled = false;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -86,8 +88,20 @@ namespace Assignment3
             txtQuantity.Clear();
             txtPrice.Clear();
             txtTotal.Clear();
-            grpCustomer.Enabled = true;
+            rdoMoney.Enabled = true;
             txtName.Focus();
+        }
+
+        private void frmAssigment4_Load(object sender, EventArgs e)
+        {
+            //Display the link in rich textbox
+            rtfLink.Text = "www.ups.com";
+        }
+
+        private void rtfLink_LinkClicked(object sender, LinkClickedEventArgs e)
+        {
+            //Enable you to click on the url and open a browser
+            System.Diagnostics.Process.Start(e.LinkText);
         }
     }
 }
