@@ -61,8 +61,9 @@ namespace Assignment3
                     decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
                 else decTaxAmount = 0m;
                 //Test Quantity Count (debugging) remove when finished
-                txtCount.Text = intNumberOfItems.ToString();              
+                txtCount.Text = intNumberOfItems.ToString();
                 //Clear description, quantity, price then focus back to description
+                grpCustomer.Enabled = false;
                 txtDescription.Clear();
                 txtQuantity.Clear();
                 txtPrice.Clear();
@@ -84,7 +85,7 @@ namespace Assignment3
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             //Disable the customer group box when enter text in description
-            rdoMoney.Enabled = false;
+            grpCustomer.Enabled = false;
         }
 
         private void btnClear_Click(object sender, EventArgs e)
@@ -102,7 +103,7 @@ namespace Assignment3
             txtQuantity.Clear();
             txtPrice.Clear();
             txtTotal.Clear();
-            rdoMoney.Enabled = true;
+            grpCustomer.Enabled = true;
             txtName.Focus();
             txtAmount.Clear();
             txtSalesTax.Clear();

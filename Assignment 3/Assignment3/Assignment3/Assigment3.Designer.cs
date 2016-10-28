@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.rdoMoney = new System.Windows.Forms.GroupBox();
+            this.grpCustomer = new System.Windows.Forms.GroupBox();
             this.chkNew = new System.Windows.Forms.CheckBox();
             this.mskZip = new System.Windows.Forms.MaskedTextBox();
             this.lblZip = new System.Windows.Forms.Label();
@@ -76,7 +76,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
             this.txtState = new System.Windows.Forms.TextBox();
-            this.rdoMoney.SuspendLayout();
+            this.grpCustomer.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpShipping.SuspendLayout();
             this.grpPayment.SuspendLayout();
@@ -84,25 +84,25 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
-            // rdoMoney
+            // grpCustomer
             // 
-            this.rdoMoney.Controls.Add(this.txtState);
-            this.rdoMoney.Controls.Add(this.chkNew);
-            this.rdoMoney.Controls.Add(this.mskZip);
-            this.rdoMoney.Controls.Add(this.lblZip);
-            this.rdoMoney.Controls.Add(this.lblState);
-            this.rdoMoney.Controls.Add(this.txtCity);
-            this.rdoMoney.Controls.Add(this.txtStreet);
-            this.rdoMoney.Controls.Add(this.txtName);
-            this.rdoMoney.Controls.Add(this.lblCity);
-            this.rdoMoney.Controls.Add(this.lblStreet);
-            this.rdoMoney.Controls.Add(this.lblName);
-            this.rdoMoney.Location = new System.Drawing.Point(22, 12);
-            this.rdoMoney.Name = "rdoMoney";
-            this.rdoMoney.Size = new System.Drawing.Size(622, 161);
-            this.rdoMoney.TabIndex = 0;
-            this.rdoMoney.TabStop = false;
-            this.rdoMoney.Text = "Customer";
+            this.grpCustomer.Controls.Add(this.txtState);
+            this.grpCustomer.Controls.Add(this.chkNew);
+            this.grpCustomer.Controls.Add(this.mskZip);
+            this.grpCustomer.Controls.Add(this.lblZip);
+            this.grpCustomer.Controls.Add(this.lblState);
+            this.grpCustomer.Controls.Add(this.txtCity);
+            this.grpCustomer.Controls.Add(this.txtStreet);
+            this.grpCustomer.Controls.Add(this.txtName);
+            this.grpCustomer.Controls.Add(this.lblCity);
+            this.grpCustomer.Controls.Add(this.lblStreet);
+            this.grpCustomer.Controls.Add(this.lblName);
+            this.grpCustomer.Location = new System.Drawing.Point(22, 12);
+            this.grpCustomer.Name = "grpCustomer";
+            this.grpCustomer.Size = new System.Drawing.Size(622, 161);
+            this.grpCustomer.TabIndex = 0;
+            this.grpCustomer.TabStop = false;
+            this.grpCustomer.Text = "Customer";
             // 
             // chkNew
             // 
@@ -558,13 +558,13 @@
             this.Controls.Add(this.btnClear);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.grpOrder);
-            this.Controls.Add(this.rdoMoney);
+            this.Controls.Add(this.grpCustomer);
             this.Controls.Add(this.pictureBox1);
             this.Name = "frmAssigment4";
             this.Text = "See Sharp Mail Order";
             this.Load += new System.EventHandler(this.frmAssigment4_Load);
-            this.rdoMoney.ResumeLayout(false);
-            this.rdoMoney.PerformLayout();
+            this.grpCustomer.ResumeLayout(false);
+            this.grpCustomer.PerformLayout();
             this.grpOrder.ResumeLayout(false);
             this.grpOrder.PerformLayout();
             this.grpShipping.ResumeLayout(false);
@@ -581,7 +581,7 @@
 
         #endregion
 
-        private System.Windows.Forms.GroupBox rdoMoney;
+        private System.Windows.Forms.GroupBox grpCustomer;
         private System.Windows.Forms.GroupBox grpOrder;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.Button btnClear;
