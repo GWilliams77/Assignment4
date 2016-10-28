@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.rdoMoney = new System.Windows.Forms.GroupBox();
+            this.chkNew = new System.Windows.Forms.CheckBox();
             this.mskZip = new System.Windows.Forms.MaskedTextBox();
             this.lblZip = new System.Windows.Forms.Label();
             this.mskState = new System.Windows.Forms.MaskedTextBox();
@@ -55,26 +56,26 @@
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.lblProgrammer = new System.Windows.Forms.Label();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.chkNew = new System.Windows.Forms.CheckBox();
             this.grpShipping = new System.Windows.Forms.GroupBox();
-            this.grpPayment = new System.Windows.Forms.GroupBox();
-            this.rdoExpress = new System.Windows.Forms.RadioButton();
             this.rdoGround = new System.Windows.Forms.RadioButton();
-            this.rdoCharge = new System.Windows.Forms.RadioButton();
-            this.rdoCod = new System.Windows.Forms.RadioButton();
+            this.rdoExpress = new System.Windows.Forms.RadioButton();
+            this.grpPayment = new System.Windows.Forms.GroupBox();
             this.radioButton5 = new System.Windows.Forms.RadioButton();
+            this.rdoCod = new System.Windows.Forms.RadioButton();
+            this.rdoCharge = new System.Windows.Forms.RadioButton();
             this.grpSummary = new System.Windows.Forms.GroupBox();
-            this.lblShipping = new System.Windows.Forms.Label();
-            this.lblSalesTax = new System.Windows.Forms.Label();
-            this.lblAmount = new System.Windows.Forms.Label();
-            this.txtSalesTax = new System.Windows.Forms.TextBox();
-            this.txtShipping = new System.Windows.Forms.TextBox();
             this.txtAmount = new System.Windows.Forms.TextBox();
+            this.txtShipping = new System.Windows.Forms.TextBox();
+            this.txtSalesTax = new System.Windows.Forms.TextBox();
+            this.lblAmount = new System.Windows.Forms.Label();
+            this.lblSalesTax = new System.Windows.Forms.Label();
+            this.lblShipping = new System.Windows.Forms.Label();
             this.btnSummary = new System.Windows.Forms.Button();
             this.lblDate = new System.Windows.Forms.Label();
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.rdoMoney.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpShipping.SuspendLayout();
@@ -102,6 +103,16 @@
             this.rdoMoney.TabIndex = 0;
             this.rdoMoney.TabStop = false;
             this.rdoMoney.Text = "Customer";
+            // 
+            // chkNew
+            // 
+            this.chkNew.AutoSize = true;
+            this.chkNew.Location = new System.Drawing.Point(496, 31);
+            this.chkNew.Name = "chkNew";
+            this.chkNew.Size = new System.Drawing.Size(95, 17);
+            this.chkNew.TabIndex = 10;
+            this.chkNew.Text = "New Customer";
+            this.chkNew.UseVisualStyleBackColor = true;
             // 
             // mskZip
             // 
@@ -187,6 +198,7 @@
             // 
             // grpOrder
             // 
+            this.grpOrder.Controls.Add(this.txtCount);
             this.grpOrder.Controls.Add(this.lblRate);
             this.grpOrder.Controls.Add(this.txtPrice);
             this.grpOrder.Controls.Add(this.txtQuantity);
@@ -320,16 +332,6 @@
             this.lblProgrammer.TabIndex = 7;
             this.lblProgrammer.Text = "Program by: Vu Le and Gerald Williams";
             // 
-            // chkNew
-            // 
-            this.chkNew.AutoSize = true;
-            this.chkNew.Location = new System.Drawing.Point(496, 31);
-            this.chkNew.Name = "chkNew";
-            this.chkNew.Size = new System.Drawing.Size(95, 17);
-            this.chkNew.TabIndex = 10;
-            this.chkNew.Text = "New Customer";
-            this.chkNew.UseVisualStyleBackColor = true;
-            // 
             // grpShipping
             // 
             this.grpShipping.Controls.Add(this.rdoGround);
@@ -341,17 +343,15 @@
             this.grpShipping.TabStop = false;
             this.grpShipping.Text = "Shipping";
             // 
-            // grpPayment
+            // rdoGround
             // 
-            this.grpPayment.Controls.Add(this.radioButton5);
-            this.grpPayment.Controls.Add(this.rdoCod);
-            this.grpPayment.Controls.Add(this.rdoCharge);
-            this.grpPayment.Location = new System.Drawing.Point(531, 185);
-            this.grpPayment.Name = "grpPayment";
-            this.grpPayment.Size = new System.Drawing.Size(113, 133);
-            this.grpPayment.TabIndex = 9;
-            this.grpPayment.TabStop = false;
-            this.grpPayment.Text = "Payment Type";
+            this.rdoGround.AutoSize = true;
+            this.rdoGround.Location = new System.Drawing.Point(6, 84);
+            this.rdoGround.Name = "rdoGround";
+            this.rdoGround.Size = new System.Drawing.Size(60, 17);
+            this.rdoGround.TabIndex = 1;
+            this.rdoGround.Text = "Ground";
+            this.rdoGround.UseVisualStyleBackColor = true;
             // 
             // rdoExpress
             // 
@@ -365,15 +365,37 @@
             this.rdoExpress.Text = "Express";
             this.rdoExpress.UseVisualStyleBackColor = true;
             // 
-            // rdoGround
+            // grpPayment
             // 
-            this.rdoGround.AutoSize = true;
-            this.rdoGround.Location = new System.Drawing.Point(6, 84);
-            this.rdoGround.Name = "rdoGround";
-            this.rdoGround.Size = new System.Drawing.Size(60, 17);
-            this.rdoGround.TabIndex = 1;
-            this.rdoGround.Text = "Ground";
-            this.rdoGround.UseVisualStyleBackColor = true;
+            this.grpPayment.Controls.Add(this.radioButton5);
+            this.grpPayment.Controls.Add(this.rdoCod);
+            this.grpPayment.Controls.Add(this.rdoCharge);
+            this.grpPayment.Location = new System.Drawing.Point(531, 185);
+            this.grpPayment.Name = "grpPayment";
+            this.grpPayment.Size = new System.Drawing.Size(113, 133);
+            this.grpPayment.TabIndex = 9;
+            this.grpPayment.TabStop = false;
+            this.grpPayment.Text = "Payment Type";
+            // 
+            // radioButton5
+            // 
+            this.radioButton5.AutoSize = true;
+            this.radioButton5.Location = new System.Drawing.Point(6, 98);
+            this.radioButton5.Name = "radioButton5";
+            this.radioButton5.Size = new System.Drawing.Size(86, 17);
+            this.radioButton5.TabIndex = 2;
+            this.radioButton5.Text = "Money Order";
+            this.radioButton5.UseVisualStyleBackColor = true;
+            // 
+            // rdoCod
+            // 
+            this.rdoCod.AutoSize = true;
+            this.rdoCod.Location = new System.Drawing.Point(7, 63);
+            this.rdoCod.Name = "rdoCod";
+            this.rdoCod.Size = new System.Drawing.Size(48, 17);
+            this.rdoCod.TabIndex = 1;
+            this.rdoCod.Text = "COD";
+            this.rdoCod.UseVisualStyleBackColor = true;
             // 
             // rdoCharge
             // 
@@ -386,26 +408,6 @@
             this.rdoCharge.TabStop = true;
             this.rdoCharge.Text = "Charge";
             this.rdoCharge.UseVisualStyleBackColor = true;
-            // 
-            // rdoCod
-            // 
-            this.rdoCod.AutoSize = true;
-            this.rdoCod.Location = new System.Drawing.Point(7, 63);
-            this.rdoCod.Name = "rdoCod";
-            this.rdoCod.Size = new System.Drawing.Size(48, 17);
-            this.rdoCod.TabIndex = 1;
-            this.rdoCod.Text = "COD";
-            this.rdoCod.UseVisualStyleBackColor = true;
-            // 
-            // radioButton5
-            // 
-            this.radioButton5.AutoSize = true;
-            this.radioButton5.Location = new System.Drawing.Point(6, 98);
-            this.radioButton5.Name = "radioButton5";
-            this.radioButton5.Size = new System.Drawing.Size(86, 17);
-            this.radioButton5.TabIndex = 2;
-            this.radioButton5.Text = "Money Order";
-            this.radioButton5.UseVisualStyleBackColor = true;
             // 
             // grpSummary
             // 
@@ -424,41 +426,14 @@
             this.grpSummary.TabStop = false;
             this.grpSummary.Text = "Summary";
             // 
-            // lblShipping
+            // txtAmount
             // 
-            this.lblShipping.AutoSize = true;
-            this.lblShipping.Location = new System.Drawing.Point(9, 76);
-            this.lblShipping.Name = "lblShipping";
-            this.lblShipping.Size = new System.Drawing.Size(114, 13);
-            this.lblShipping.TabIndex = 7;
-            this.lblShipping.Text = "Shipping and Handling";
-            // 
-            // lblSalesTax
-            // 
-            this.lblSalesTax.AutoSize = true;
-            this.lblSalesTax.Location = new System.Drawing.Point(9, 50);
-            this.lblSalesTax.Name = "lblSalesTax";
-            this.lblSalesTax.Size = new System.Drawing.Size(54, 13);
-            this.lblSalesTax.TabIndex = 8;
-            this.lblSalesTax.Text = "Sales Tax";
-            // 
-            // lblAmount
-            // 
-            this.lblAmount.AutoSize = true;
-            this.lblAmount.Location = new System.Drawing.Point(9, 26);
-            this.lblAmount.Name = "lblAmount";
-            this.lblAmount.Size = new System.Drawing.Size(66, 13);
-            this.lblAmount.TabIndex = 9;
-            this.lblAmount.Text = "Amount Due";
-            // 
-            // txtSalesTax
-            // 
-            this.txtSalesTax.Location = new System.Drawing.Point(155, 47);
-            this.txtSalesTax.Name = "txtSalesTax";
-            this.txtSalesTax.ReadOnly = true;
-            this.txtSalesTax.Size = new System.Drawing.Size(177, 20);
-            this.txtSalesTax.TabIndex = 10;
-            this.txtSalesTax.TabStop = false;
+            this.txtAmount.Location = new System.Drawing.Point(155, 21);
+            this.txtAmount.Name = "txtAmount";
+            this.txtAmount.ReadOnly = true;
+            this.txtAmount.Size = new System.Drawing.Size(177, 20);
+            this.txtAmount.TabIndex = 12;
+            this.txtAmount.TabStop = false;
             // 
             // txtShipping
             // 
@@ -469,14 +444,41 @@
             this.txtShipping.TabIndex = 11;
             this.txtShipping.TabStop = false;
             // 
-            // txtAmount
+            // txtSalesTax
             // 
-            this.txtAmount.Location = new System.Drawing.Point(155, 21);
-            this.txtAmount.Name = "txtAmount";
-            this.txtAmount.ReadOnly = true;
-            this.txtAmount.Size = new System.Drawing.Size(177, 20);
-            this.txtAmount.TabIndex = 12;
-            this.txtAmount.TabStop = false;
+            this.txtSalesTax.Location = new System.Drawing.Point(155, 47);
+            this.txtSalesTax.Name = "txtSalesTax";
+            this.txtSalesTax.ReadOnly = true;
+            this.txtSalesTax.Size = new System.Drawing.Size(177, 20);
+            this.txtSalesTax.TabIndex = 10;
+            this.txtSalesTax.TabStop = false;
+            // 
+            // lblAmount
+            // 
+            this.lblAmount.AutoSize = true;
+            this.lblAmount.Location = new System.Drawing.Point(9, 26);
+            this.lblAmount.Name = "lblAmount";
+            this.lblAmount.Size = new System.Drawing.Size(66, 13);
+            this.lblAmount.TabIndex = 9;
+            this.lblAmount.Text = "Amount Due";
+            // 
+            // lblSalesTax
+            // 
+            this.lblSalesTax.AutoSize = true;
+            this.lblSalesTax.Location = new System.Drawing.Point(9, 50);
+            this.lblSalesTax.Name = "lblSalesTax";
+            this.lblSalesTax.Size = new System.Drawing.Size(54, 13);
+            this.lblSalesTax.TabIndex = 8;
+            this.lblSalesTax.Text = "Sales Tax";
+            // 
+            // lblShipping
+            // 
+            this.lblShipping.AutoSize = true;
+            this.lblShipping.Location = new System.Drawing.Point(9, 76);
+            this.lblShipping.Name = "lblShipping";
+            this.lblShipping.Size = new System.Drawing.Size(114, 13);
+            this.lblShipping.TabIndex = 7;
+            this.lblShipping.Text = "Shipping and Handling";
             // 
             // btnSummary
             // 
@@ -486,6 +488,7 @@
             this.btnSummary.TabIndex = 11;
             this.btnSummary.Text = "Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
+            this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
             // lblDate
             // 
@@ -523,6 +526,13 @@
             this.rtfLink.TabIndex = 15;
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(244, 98);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(100, 20);
+            this.txtCount.TabIndex = 7;
             // 
             // frmAssigment4
             // 
@@ -612,6 +622,7 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtfLink;
+        private System.Windows.Forms.TextBox txtCount;
     }
 }
 

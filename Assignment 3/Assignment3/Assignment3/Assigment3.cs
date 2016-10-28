@@ -15,10 +15,15 @@ namespace Assignment3
 {
     public partial class frmAssigment4 : Form
     {
-        //Global Constant and variable
+        //Global Constant and variables
         const decimal decTAX_RATE = 0.087m;
         private decimal decTOTAL; // 0.0m
         private decimal decTOTAL_DUE; // 0.0m
+        private decimal decTaxAmount;       
+        private decimal decShippingCost;
+        private decimal decHandlingCost;
+        private int intNumberOfItems;
+
         public frmAssigment4()
         {
             InitializeComponent();
@@ -39,16 +44,18 @@ namespace Assignment3
             try
             {
                 //Local variable
-                decimal decQuantity, decPrice;
+                decimal decPrice; int intQuantity;
                 //Convert text to decimal
-                decQuantity = Convert.ToDecimal(txtQuantity.Text);
+                intQuantity = Convert.ToInt32(txtQuantity.Text);
                 decPrice = Convert.ToDecimal(txtPrice.Text);
                 //Calculation (quantity times price)
-                decTOTAL = decQuantity * decPrice;                                          
-                //Accumulate for total due and add tax
-                decTOTAL_DUE += (decTOTAL * decTAX_RATE) + decTOTAL;
-                //Convert from decimal back to text to show user the final total due
-                txtTotal.Text = decTOTAL_DUE.ToString("c");
+                decTOTAL = intQuantity * decPrice;
+                decTOTAL_DUE += decTOTAL;
+                intNumberOfItems += intQuantity;                                         
+                //Get tax amount 
+                decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
+                //Test Quantity Count (debugging) remove when finished
+                txtCount.Text = intNumberOfItems.ToString();              
                 //Clear description, quantity, price then focus back to description
                 txtDescription.Clear();
                 txtQuantity.Clear();
@@ -78,6 +85,7 @@ namespace Assignment3
             //reset the accumulator back to 0
             decTOTAL = 0.0m;
             decTOTAL_DUE = 0.0m;
+            intNumberOfItems = 0;
             //Clear all data and focus back to Name
             txtName.Clear();
             txtStreet.Clear();
@@ -90,6 +98,11 @@ namespace Assignment3
             txtTotal.Clear();
             rdoMoney.Enabled = true;
             txtName.Focus();
+            txtAmount.Clear();
+            txtSalesTax.Clear();
+            txtShipping.Clear();
+            txtCount.Clear();
+
         }
 
         private void frmAssigment4_Load(object sender, EventArgs e)
@@ -102,6 +115,34 @@ namespace Assignment3
         {
             //Enable you to click on the url and open a browser
             System.Diagnostics.Process.Start(e.LinkText);
+        }
+
+        private void btnSummary_Click(object sender, EventArgs e)
+        {
+        
+            txtSalesTax.Text = decTaxAmount.ToString("c");
+            txtAmount.Text = decTOTAL_DUE.ToString("c");
+            switch (intNumberOfItems)
+            {
+                case 1:
+                case 2:
+                    decHandlingCost = 1.5m;
+                    break;
+                case 3:
+                case 4:
+                    decHandlingCost = 2.75m;
+                    break;
+                default:
+                    decHandlingCost = 5.5m;
+                    break;
+
+            }
+            if (rdoExpress.Checked)
+                decShippingCost = 13.25m;
+            else
+                decShippingCost = 5.75m;
+            txtShipping.Text = Convert.ToString(decHandlingCost + decShippingCost); 
+
         }
     }
 }

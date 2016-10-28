@@ -25,3 +25,12 @@ C:\Users\Le\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\
 C:\Users\Le\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.Properties.Resources.resources
 C:\Users\Le\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.GenerateResource.Cache
 C:\Users\Le\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.frmAssigment4.resources
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe.config
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.exe
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.pdb
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.exe
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\bin\Debug\Assignment3.pdb
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csprojResolveAssemblyReference.cache
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.frmAssigment4.resources
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.Properties.Resources.resources
+C:\Users\Attickus\Desktop\GitHub\Assignment4\Assignment 3\Assignment3\Assignment3\obj\Debug\Assignment3.csproj.GenerateResource.Cache
