@@ -33,7 +33,6 @@
             this.chkNew = new System.Windows.Forms.CheckBox();
             this.mskZip = new System.Windows.Forms.MaskedTextBox();
             this.lblZip = new System.Windows.Forms.Label();
-            this.mskState = new System.Windows.Forms.MaskedTextBox();
             this.lblState = new System.Windows.Forms.Label();
             this.txtCity = new System.Windows.Forms.TextBox();
             this.txtStreet = new System.Windows.Forms.TextBox();
@@ -42,6 +41,7 @@
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
+            this.txtCount = new System.Windows.Forms.TextBox();
             this.lblRate = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -75,7 +75,7 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
-            this.txtCount = new System.Windows.Forms.TextBox();
+            this.txtState = new System.Windows.Forms.TextBox();
             this.rdoMoney.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpShipping.SuspendLayout();
@@ -86,10 +86,10 @@
             // 
             // rdoMoney
             // 
+            this.rdoMoney.Controls.Add(this.txtState);
             this.rdoMoney.Controls.Add(this.chkNew);
             this.rdoMoney.Controls.Add(this.mskZip);
             this.rdoMoney.Controls.Add(this.lblZip);
-            this.rdoMoney.Controls.Add(this.mskState);
             this.rdoMoney.Controls.Add(this.lblState);
             this.rdoMoney.Controls.Add(this.txtCity);
             this.rdoMoney.Controls.Add(this.txtStreet);
@@ -107,6 +107,8 @@
             // chkNew
             // 
             this.chkNew.AutoSize = true;
+            this.chkNew.Checked = true;
+            this.chkNew.CheckState = System.Windows.Forms.CheckState.Checked;
             this.chkNew.Location = new System.Drawing.Point(496, 31);
             this.chkNew.Name = "chkNew";
             this.chkNew.Size = new System.Drawing.Size(95, 17);
@@ -130,14 +132,6 @@
             this.lblZip.Size = new System.Drawing.Size(53, 13);
             this.lblZip.TabIndex = 8;
             this.lblZip.Text = "&Zip Code:";
-            // 
-            // mskState
-            // 
-            this.mskState.Location = new System.Drawing.Point(412, 108);
-            this.mskState.Mask = ">LL";
-            this.mskState.Name = "mskState";
-            this.mskState.Size = new System.Drawing.Size(25, 20);
-            this.mskState.TabIndex = 7;
             // 
             // lblState
             // 
@@ -212,6 +206,13 @@
             this.grpOrder.TabIndex = 1;
             this.grpOrder.TabStop = false;
             this.grpOrder.Text = "Order";
+            // 
+            // txtCount
+            // 
+            this.txtCount.Location = new System.Drawing.Point(244, 98);
+            this.txtCount.Name = "txtCount";
+            this.txtCount.Size = new System.Drawing.Size(100, 20);
+            this.txtCount.TabIndex = 7;
             // 
             // lblRate
             // 
@@ -482,6 +483,7 @@
             // 
             // btnSummary
             // 
+            this.btnSummary.Enabled = false;
             this.btnSummary.Location = new System.Drawing.Point(114, 466);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(83, 23);
@@ -527,12 +529,15 @@
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
             // 
-            // txtCount
+            // txtState
             // 
-            this.txtCount.Location = new System.Drawing.Point(244, 98);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(100, 20);
-            this.txtCount.TabIndex = 7;
+            this.txtState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtState.Location = new System.Drawing.Point(409, 107);
+            this.txtState.MaxLength = 2;
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(33, 20);
+            this.txtState.TabIndex = 11;
+            this.txtState.Text = "WA";
             // 
             // frmAssigment4
             // 
@@ -585,7 +590,6 @@
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.MaskedTextBox mskZip;
         private System.Windows.Forms.Label lblZip;
-        private System.Windows.Forms.MaskedTextBox mskState;
         private System.Windows.Forms.Label lblState;
         private System.Windows.Forms.TextBox txtCity;
         private System.Windows.Forms.TextBox txtStreet;
@@ -623,6 +627,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtfLink;
         private System.Windows.Forms.TextBox txtCount;
+        private System.Windows.Forms.TextBox txtState;
     }
 }
 

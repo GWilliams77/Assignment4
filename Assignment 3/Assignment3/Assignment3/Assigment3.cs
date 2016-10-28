@@ -23,6 +23,8 @@ namespace Assignment3
         private decimal decShippingCost;
         private decimal decHandlingCost;
         private int intNumberOfItems;
+        private decimal decTotalAmount;
+        private decimal decShipNHand;
 
         public frmAssigment4()
         {
@@ -49,11 +51,15 @@ namespace Assignment3
                 intQuantity = Convert.ToInt32(txtQuantity.Text);
                 decPrice = Convert.ToDecimal(txtPrice.Text);
                 //Calculation (quantity times price)
-                decTOTAL = intQuantity * decPrice;
+                if (chkNew.Checked)
+                    decTOTAL = (decPrice * intQuantity) * .9m;
+                else decTOTAL = decPrice * intQuantity;
                 decTOTAL_DUE += decTOTAL;
-                intNumberOfItems += intQuantity;                                         
+                intNumberOfItems += intQuantity;
                 //Get tax amount 
-                decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
+                if (txtState.Text == "WA")
+                    decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
+                else decTaxAmount = 0m;
                 //Test Quantity Count (debugging) remove when finished
                 txtCount.Text = intNumberOfItems.ToString();              
                 //Clear description, quantity, price then focus back to description
@@ -61,6 +67,7 @@ namespace Assignment3
                 txtQuantity.Clear();
                 txtPrice.Clear();
                 txtDescription.Focus();
+                btnSummary.Enabled = true;
             }            
             // Catch All, format wrong
             catch (FormatException)
@@ -89,8 +96,7 @@ namespace Assignment3
             //Clear all data and focus back to Name
             txtName.Clear();
             txtStreet.Clear();
-            txtCity.Clear();
-            mskState.Clear();
+            txtCity.Clear();            
             mskZip.Clear();
             txtDescription.Clear();
             txtQuantity.Clear();
@@ -118,10 +124,7 @@ namespace Assignment3
         }
 
         private void btnSummary_Click(object sender, EventArgs e)
-        {
-        
-            txtSalesTax.Text = decTaxAmount.ToString("c");
-            txtAmount.Text = decTOTAL_DUE.ToString("c");
+        {                                           
             switch (intNumberOfItems)
             {
                 case 1:
@@ -141,7 +144,16 @@ namespace Assignment3
                 decShippingCost = 13.25m;
             else
                 decShippingCost = 5.75m;
-            txtShipping.Text = Convert.ToString(decHandlingCost + decShippingCost); 
+            decShipNHand = (decHandlingCost + decShippingCost);
+            decTotalAmount = (decTOTAL_DUE + decTaxAmount + decHandlingCost + decShippingCost);
+            txtShipping.Text = decShipNHand.ToString("c");
+            txtTotal.Text = decTotalAmount.ToString("c");
+            txtSalesTax.Text = decTaxAmount.ToString("c");
+            txtAmount.Text = decTOTAL_DUE.ToString("c");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }
