@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.grpCustomer = new System.Windows.Forms.GroupBox();
+            this.txtState = new System.Windows.Forms.TextBox();
             this.chkNew = new System.Windows.Forms.CheckBox();
             this.mskZip = new System.Windows.Forms.MaskedTextBox();
             this.lblZip = new System.Windows.Forms.Label();
@@ -41,7 +42,6 @@
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
-            this.txtCount = new System.Windows.Forms.TextBox();
             this.lblRate = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtQuantity = new System.Windows.Forms.TextBox();
@@ -75,7 +75,6 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
-            this.txtState = new System.Windows.Forms.TextBox();
             this.grpCustomer.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpShipping.SuspendLayout();
@@ -104,6 +103,16 @@
             this.grpCustomer.TabStop = false;
             this.grpCustomer.Text = "Customer";
             // 
+            // txtState
+            // 
+            this.txtState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtState.Location = new System.Drawing.Point(409, 107);
+            this.txtState.MaxLength = 2;
+            this.txtState.Name = "txtState";
+            this.txtState.Size = new System.Drawing.Size(33, 20);
+            this.txtState.TabIndex = 7;
+            this.txtState.Text = "WA";
+            // 
             // chkNew
             // 
             this.chkNew.AutoSize = true;
@@ -112,7 +121,7 @@
             this.chkNew.Location = new System.Drawing.Point(496, 31);
             this.chkNew.Name = "chkNew";
             this.chkNew.Size = new System.Drawing.Size(95, 17);
-            this.chkNew.TabIndex = 10;
+            this.chkNew.TabIndex = 6;
             this.chkNew.Text = "New Customer";
             this.chkNew.UseVisualStyleBackColor = true;
             // 
@@ -122,7 +131,7 @@
             this.mskZip.Mask = "00000-9999";
             this.mskZip.Name = "mskZip";
             this.mskZip.Size = new System.Drawing.Size(65, 20);
-            this.mskZip.TabIndex = 9;
+            this.mskZip.TabIndex = 8;
             // 
             // lblZip
             // 
@@ -192,7 +201,6 @@
             // 
             // grpOrder
             // 
-            this.grpOrder.Controls.Add(this.txtCount);
             this.grpOrder.Controls.Add(this.lblRate);
             this.grpOrder.Controls.Add(this.txtPrice);
             this.grpOrder.Controls.Add(this.txtQuantity);
@@ -206,13 +214,6 @@
             this.grpOrder.TabIndex = 1;
             this.grpOrder.TabStop = false;
             this.grpOrder.Text = "Order";
-            // 
-            // txtCount
-            // 
-            this.txtCount.Location = new System.Drawing.Point(244, 98);
-            this.txtCount.Name = "txtCount";
-            this.txtCount.Size = new System.Drawing.Size(100, 20);
-            this.txtCount.TabIndex = 7;
             // 
             // lblRate
             // 
@@ -277,7 +278,7 @@
             this.btnAdd.Location = new System.Drawing.Point(22, 466);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(86, 23);
-            this.btnAdd.TabIndex = 2;
+            this.btnAdd.TabIndex = 5;
             this.btnAdd.Text = "&Add Order";
             this.toolTip1.SetToolTip(this.btnAdd, "Add current price to Total due.");
             this.btnAdd.UseVisualStyleBackColor = true;
@@ -289,7 +290,7 @@
             this.btnClear.Location = new System.Drawing.Point(203, 466);
             this.btnClear.Name = "btnClear";
             this.btnClear.Size = new System.Drawing.Size(75, 23);
-            this.btnClear.TabIndex = 3;
+            this.btnClear.TabIndex = 7;
             this.btnClear.Text = "&Clear All";
             this.toolTip1.SetToolTip(this.btnClear, "Clears form.");
             this.btnClear.UseVisualStyleBackColor = true;
@@ -300,7 +301,7 @@
             this.btnExit.Location = new System.Drawing.Point(284, 466);
             this.btnExit.Name = "btnExit";
             this.btnExit.Size = new System.Drawing.Size(86, 23);
-            this.btnExit.TabIndex = 4;
+            this.btnExit.TabIndex = 8;
             this.btnExit.Text = "E&xit";
             this.toolTip1.SetToolTip(this.btnExit, "Exits form.");
             this.btnExit.UseVisualStyleBackColor = true;
@@ -340,7 +341,7 @@
             this.grpShipping.Location = new System.Drawing.Point(417, 185);
             this.grpShipping.Name = "grpShipping";
             this.grpShipping.Size = new System.Drawing.Size(108, 133);
-            this.grpShipping.TabIndex = 8;
+            this.grpShipping.TabIndex = 2;
             this.grpShipping.TabStop = false;
             this.grpShipping.Text = "Shipping";
             // 
@@ -374,7 +375,7 @@
             this.grpPayment.Location = new System.Drawing.Point(531, 185);
             this.grpPayment.Name = "grpPayment";
             this.grpPayment.Size = new System.Drawing.Size(113, 133);
-            this.grpPayment.TabIndex = 9;
+            this.grpPayment.TabIndex = 3;
             this.grpPayment.TabStop = false;
             this.grpPayment.Text = "Payment Type";
             // 
@@ -487,7 +488,7 @@
             this.btnSummary.Location = new System.Drawing.Point(114, 466);
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(83, 23);
-            this.btnSummary.TabIndex = 11;
+            this.btnSummary.TabIndex = 6;
             this.btnSummary.Text = "Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
             this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
@@ -525,19 +526,9 @@
             this.rtfLink.Location = new System.Drawing.Point(417, 401);
             this.rtfLink.Name = "rtfLink";
             this.rtfLink.Size = new System.Drawing.Size(84, 25);
-            this.rtfLink.TabIndex = 15;
+            this.rtfLink.TabIndex = 4;
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
-            // 
-            // txtState
-            // 
-            this.txtState.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtState.Location = new System.Drawing.Point(409, 107);
-            this.txtState.MaxLength = 2;
-            this.txtState.Name = "txtState";
-            this.txtState.Size = new System.Drawing.Size(33, 20);
-            this.txtState.TabIndex = 11;
-            this.txtState.Text = "WA";
             // 
             // frmAssigment4
             // 
@@ -626,7 +617,6 @@
         private System.Windows.Forms.TextBox txtDate;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtfLink;
-        private System.Windows.Forms.TextBox txtCount;
         private System.Windows.Forms.TextBox txtState;
     }
 }

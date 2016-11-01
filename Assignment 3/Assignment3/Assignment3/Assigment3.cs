@@ -1,6 +1,6 @@
 ﻿//Vu Le and Gerald Williams
 //Fall 2016
-//Assigment 3
+//Assigment 4
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -55,20 +55,22 @@ namespace Assignment3
                     decTOTAL = (decPrice * intQuantity) * .9m;
                 else decTOTAL = decPrice * intQuantity;
                 decTOTAL_DUE += decTOTAL;
+                //Hold count in variable for handling 
                 intNumberOfItems += intQuantity;
                 //Get tax amount 
                 if (txtState.Text == "WA")
                     decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
                 else decTaxAmount = 0m;
                 //Test Quantity Count (debugging) remove when finished
-                txtCount.Text = intNumberOfItems.ToString();
-                //Clear description, quantity, price then focus back to description
-                grpCustomer.Enabled = false;
+                //txtCount.Text = intNumberOfItems.ToString();
+                //Clear description, quantity, price then focus back to description               
                 txtDescription.Clear();
                 txtQuantity.Clear();
                 txtPrice.Clear();
                 txtDescription.Focus();
+                //Enable Summary button, disable Customer group box
                 btnSummary.Enabled = true;
+                grpCustomer.Enabled = false;
             }            
             // Catch All, format wrong
             catch (FormatException)
@@ -103,12 +105,17 @@ namespace Assignment3
             txtQuantity.Clear();
             txtPrice.Clear();
             txtTotal.Clear();
-            grpCustomer.Enabled = true;
             txtName.Focus();
             txtAmount.Clear();
             txtSalesTax.Clear();
-            txtShipping.Clear();
-            txtCount.Clear();
+            txtShipping.Clear();            
+            //Enable Customer group box
+            grpCustomer.Enabled = true;
+            //Reset shipping and payment type radio types
+            rdoExpress.Checked = true;
+            rdoCharge.Checked = true;
+            //Reset State text box to WAshington State
+            txtState.Text = Convert.ToString("WA");
 
         }
 
@@ -125,37 +132,36 @@ namespace Assignment3
         }
 
         private void btnSummary_Click(object sender, EventArgs e)
-        {                                           
+        {   //Switch for handling, using integer variable from earlier                                        
             switch (intNumberOfItems)
             {
                 case 1:
-                case 2:
+                case 2:     // if value is 2 or less
                     decHandlingCost = 1.5m;
                     break;
                 case 3:
-                case 4:
+                case 4:     // if value is 3 or 4
                     decHandlingCost = 2.75m;
                     break;
-                default:
+                default:    // if value is other (greater then 5)
                     decHandlingCost = 5.5m;
                     break;
 
             }
+            // if else for shipping cost saved into shipping variable
             if (rdoExpress.Checked)
                 decShippingCost = 13.25m;
             else
                 decShippingCost = 5.75m;
+            // Calculate decimal of shipping and handling together into variable
             decShipNHand = (decHandlingCost + decShippingCost);
+            // Calculate final Total Amount in decimal
             decTotalAmount = (decTOTAL_DUE + decTaxAmount + decHandlingCost + decShippingCost);
+            // Set text output to currency
             txtShipping.Text = decShipNHand.ToString("c");
             txtTotal.Text = decTotalAmount.ToString("c");
             txtSalesTax.Text = decTaxAmount.ToString("c");
             txtAmount.Text = decTOTAL_DUE.ToString("c");
-        }
-
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
         }
     }
 }
