@@ -19,7 +19,7 @@ namespace Assignment3
         const decimal decTAX_RATE = 0.087m;
         private decimal decTOTAL; // 0.0m
         private decimal decTOTAL_DUE; // 0.0m
-        private decimal decTaxAmount;       
+        private decimal decTaxAmount;
         private decimal decShippingCost;
         private decimal decHandlingCost;
         private int intNumberOfItems;
@@ -38,8 +38,8 @@ namespace Assignment3
             //Close the form
             this.Close();
         }
-        
-               
+
+
         private void btnAdd_Click(object sender, EventArgs e)
         {
             //Try/Catch for errors in calculations
@@ -71,19 +71,19 @@ namespace Assignment3
                 //Enable Summary button, disable Customer group box
                 btnSummary.Enabled = true;
                 grpCustomer.Enabled = false;
-            }            
+            }
             // Catch All, format wrong
             catch (FormatException)
             {
-                 MessageBox.Show("Non-Numeric", "Bad Input");
+                MessageBox.Show("Non-Numeric", "Bad Input");
             }
             // Catch, data size too large
             catch (OverflowException)
             {
-                 MessageBox.Show("Huge", "Bad Input");                        
+                MessageBox.Show("Huge", "Bad Input");
             }
         }
-        
+
         private void txtDescription_TextChanged(object sender, EventArgs e)
         {
             //Disable the customer group box when enter text in description
@@ -99,7 +99,7 @@ namespace Assignment3
             //Clear all data and focus back to Name
             txtName.Clear();
             txtStreet.Clear();
-            txtCity.Clear();            
+            txtCity.Clear();
             mskZip.Clear();
             txtDescription.Clear();
             txtQuantity.Clear();
@@ -108,7 +108,7 @@ namespace Assignment3
             txtName.Focus();
             txtAmount.Clear();
             txtSalesTax.Clear();
-            txtShipping.Clear();            
+            txtShipping.Clear();
             //Enable Customer group box
             grpCustomer.Enabled = true;
             //Reset shipping and payment type radio types
@@ -116,6 +116,8 @@ namespace Assignment3
             rdoCharge.Checked = true;
             //Reset State text box to WAshington State
             txtState.Text = Convert.ToString("WA");
+            //Reset New Customer checkbox back to true
+            chkNew.Checked = true;
 
         }
 
