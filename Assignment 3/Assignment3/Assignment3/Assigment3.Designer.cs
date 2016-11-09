@@ -489,7 +489,7 @@
             this.btnSummary.Name = "btnSummary";
             this.btnSummary.Size = new System.Drawing.Size(83, 23);
             this.btnSummary.TabIndex = 6;
-            this.btnSummary.Text = "Summary";
+            this.btnSummary.Text = "&Summary";
             this.btnSummary.UseVisualStyleBackColor = true;
             this.btnSummary.Click += new System.EventHandler(this.btnSummary_Click);
             // 
