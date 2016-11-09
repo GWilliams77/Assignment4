@@ -44,7 +44,6 @@
             this.grpOrder = new System.Windows.Forms.GroupBox();
             this.lblRate = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
-            this.txtQuantity = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
             this.lblPrice = new System.Windows.Forms.Label();
             this.lblQuantity = new System.Windows.Forms.Label();
@@ -75,12 +74,14 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.grpCustomer.SuspendLayout();
             this.grpOrder.SuspendLayout();
             this.grpShipping.SuspendLayout();
             this.grpPayment.SuspendLayout();
             this.grpSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCustomer
@@ -201,9 +202,9 @@
             // 
             // grpOrder
             // 
+            this.grpOrder.Controls.Add(this.numQuantity);
             this.grpOrder.Controls.Add(this.lblRate);
             this.grpOrder.Controls.Add(this.txtPrice);
-            this.grpOrder.Controls.Add(this.txtQuantity);
             this.grpOrder.Controls.Add(this.txtDescription);
             this.grpOrder.Controls.Add(this.lblPrice);
             this.grpOrder.Controls.Add(this.lblQuantity);
@@ -230,13 +231,6 @@
             this.txtPrice.Name = "txtPrice";
             this.txtPrice.Size = new System.Drawing.Size(100, 20);
             this.txtPrice.TabIndex = 5;
-            // 
-            // txtQuantity
-            // 
-            this.txtQuantity.Location = new System.Drawing.Point(75, 63);
-            this.txtQuantity.Name = "txtQuantity";
-            this.txtQuantity.Size = new System.Drawing.Size(48, 20);
-            this.txtQuantity.TabIndex = 4;
             // 
             // txtDescription
             // 
@@ -530,6 +524,28 @@
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
             // 
+            // numQuantity
+            // 
+            this.numQuantity.Location = new System.Drawing.Point(75, 63);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(48, 20);
+            this.numQuantity.TabIndex = 7;
+            this.numQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // frmAssigment4
             // 
             this.AcceptButton = this.btnAdd;
@@ -565,6 +581,7 @@
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -590,7 +607,6 @@
         private System.Windows.Forms.Label lblName;
         private System.Windows.Forms.Label lblRate;
         private System.Windows.Forms.TextBox txtPrice;
-        private System.Windows.Forms.TextBox txtQuantity;
         private System.Windows.Forms.TextBox txtDescription;
         private System.Windows.Forms.Label lblPrice;
         private System.Windows.Forms.Label lblQuantity;
@@ -618,6 +634,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.RichTextBox rtfLink;
         private System.Windows.Forms.TextBox txtState;
+        private System.Windows.Forms.NumericUpDown numQuantity;
     }
 }
 

@@ -17,10 +17,9 @@ namespace Assignment3
     {
         //Global Constant and variables
         const decimal decTAX_RATE = 0.087m;
+        const decimal decNEW_DISCOUNT = 0.10m;
         private decimal decTOTAL; // 0.0m
         private decimal decTOTAL_DUE; // 0.0m
-        private decimal decTaxAmount;
-        private decimal decShippingCost;
         private decimal decHandlingCost;
         private int intNumberOfItems;
         private decimal decTotalAmount;
@@ -45,29 +44,23 @@ namespace Assignment3
             //Try/Catch for errors in calculations
             try
             {
-                //Local variable
-                decimal decPrice; int intQuantity;
+                decimal decPrice; int intQuantity; //local variable
                 //Convert text to decimal
-                intQuantity = Convert.ToInt32(txtQuantity.Text);
+                intQuantity = Convert.ToInt32(numQuantity.Text);
                 decPrice = Convert.ToDecimal(txtPrice.Text);
                 //Calculation (quantity times price)
-                if (chkNew.Checked)
-                    decTOTAL = (decPrice * intQuantity) * .9m;
-                else decTOTAL = decPrice * intQuantity;
+                decTOTAL = decPrice * intQuantity;
                 decTOTAL_DUE += decTOTAL;
                 //Hold count in variable for handling 
                 intNumberOfItems += intQuantity;
-                //Get tax amount 
-                if (txtState.Text == "WA")
-                    decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
-                else decTaxAmount = 0m;
                 //Test Quantity Count (debugging) remove when finished
                 //txtCount.Text = intNumberOfItems.ToString();
                 //Clear description, quantity, price then focus back to description               
-                txtDescription.Clear();
-                txtQuantity.Clear();
+                txtDescription.Clear();            
                 txtPrice.Clear();
                 txtDescription.Focus();
+                //reset quantity to 1
+                numQuantity.Value = 1;
                 //Enable Summary button, disable Customer group box
                 btnSummary.Enabled = true;
                 grpCustomer.Enabled = false;
@@ -102,13 +95,14 @@ namespace Assignment3
             txtCity.Clear();
             mskZip.Clear();
             txtDescription.Clear();
-            txtQuantity.Clear();
             txtPrice.Clear();
             txtTotal.Clear();
             txtName.Focus();
             txtAmount.Clear();
             txtSalesTax.Clear();
             txtShipping.Clear();
+            //reset quantity to 1
+            numQuantity.Value = 1;
             //Enable Customer group box
             grpCustomer.Enabled = true;
             //Reset shipping and payment type radio types
@@ -118,7 +112,8 @@ namespace Assignment3
             txtState.Text = Convert.ToString("WA");
             //Reset New Customer checkbox back to true
             chkNew.Checked = true;
-
+            //Disable summary button
+            btnSummary.Enabled = false;
         }
 
         private void frmAssigment4_Load(object sender, EventArgs e)
@@ -134,7 +129,44 @@ namespace Assignment3
         }
 
         private void btnSummary_Click(object sender, EventArgs e)
-        {   //Switch for handling, using integer variable from earlier                                        
+
+        {
+            //Local variable
+            decimal decHandlingCost, decShippingCost, decTaxAmount, decDiscount;
+            decHandlingCost = GetHandlingFee();
+            decShippingCost = GetShippingCharge();
+            decTaxAmount = GetSalesTax();
+            decDiscount = GetDiscount();
+            // Calculate decimal of shipping and handling together into variable
+            decShipNHand = (decHandlingCost + decShippingCost);
+            // Calculate amount due
+            decTOTAL_DUE = decTOTAL_DUE - decDiscount;
+            // Calculate final Total Amount in decimal
+            decTotalAmount = (decTOTAL_DUE - decDiscount) + decTaxAmount + decHandlingCost + decShippingCost;
+            // Set text output to currency
+            txtShipping.Text = decShipNHand.ToString("c");
+            txtTotal.Text = decTotalAmount.ToString("c");
+            txtSalesTax.Text = decTaxAmount.ToString("c");
+            txtAmount.Text = decTOTAL_DUE.ToString("c");
+        }
+        //Get sales tax method (debugging)
+        private decimal GetSalesTax()
+        {
+            decimal decTaxAmount; //local variable
+
+            if (txtState.Text == "WA")
+            {
+                decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
+            }
+            else
+            {
+                decTaxAmount = 0m;
+            }
+            return decTaxAmount;
+        }
+        // Get handling fee method 
+        private decimal GetHandlingFee()
+        {
             switch (intNumberOfItems)
             {
                 case 1:
@@ -148,22 +180,39 @@ namespace Assignment3
                 default:    // if value is other (greater then 5)
                     decHandlingCost = 5.5m;
                     break;
-
             }
-            // if else for shipping cost saved into shipping variable
+            return decHandlingCost;
+        }
+        // Get shipping charge method 
+        private decimal GetShippingCharge()
+        {
+            decimal decShippingCost;
+
             if (rdoExpress.Checked)
+            {
                 decShippingCost = 13.25m;
+            }
             else
+            {
                 decShippingCost = 5.75m;
-            // Calculate decimal of shipping and handling together into variable
-            decShipNHand = (decHandlingCost + decShippingCost);
-            // Calculate final Total Amount in decimal
-            decTotalAmount = (decTOTAL_DUE + decTaxAmount + decHandlingCost + decShippingCost);
-            // Set text output to currency
-            txtShipping.Text = decShipNHand.ToString("c");
-            txtTotal.Text = decTotalAmount.ToString("c");
-            txtSalesTax.Text = decTaxAmount.ToString("c");
-            txtAmount.Text = decTOTAL_DUE.ToString("c");
+            }
+
+            return decShippingCost;
+        }
+        // Get discount for new customer
+        private decimal GetDiscount()
+        {
+            decimal decDiscount;
+
+            if (chkNew.Checked)
+            {
+                decDiscount = decTOTAL_DUE * decNEW_DISCOUNT;
+            }
+            else
+            {
+                decDiscount = 0m;
+            }
+            return decDiscount;
         }
     }
 }
