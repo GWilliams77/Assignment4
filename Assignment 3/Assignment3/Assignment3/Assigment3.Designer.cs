@@ -42,6 +42,7 @@
             this.lblStreet = new System.Windows.Forms.Label();
             this.lblName = new System.Windows.Forms.Label();
             this.grpOrder = new System.Windows.Forms.GroupBox();
+            this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.lblRate = new System.Windows.Forms.Label();
             this.txtPrice = new System.Windows.Forms.TextBox();
             this.txtDescription = new System.Windows.Forms.TextBox();
@@ -74,14 +75,13 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
-            this.numQuantity = new System.Windows.Forms.NumericUpDown();
             this.grpCustomer.SuspendLayout();
             this.grpOrder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.grpShipping.SuspendLayout();
             this.grpPayment.SuspendLayout();
             this.grpSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCustomer
@@ -133,6 +133,7 @@
             this.mskZip.Name = "mskZip";
             this.mskZip.Size = new System.Drawing.Size(65, 20);
             this.mskZip.TabIndex = 8;
+            this.mskZip.Validating += new System.ComponentModel.CancelEventHandler(this.mskZip_Validating);
             // 
             // lblZip
             // 
@@ -158,6 +159,7 @@
             this.txtCity.Name = "txtCity";
             this.txtCity.Size = new System.Drawing.Size(262, 20);
             this.txtCity.TabIndex = 5;
+            this.txtCity.Validating += new System.ComponentModel.CancelEventHandler(this.txtCity_Validating);
             // 
             // txtStreet
             // 
@@ -165,6 +167,7 @@
             this.txtStreet.Name = "txtStreet";
             this.txtStreet.Size = new System.Drawing.Size(379, 20);
             this.txtStreet.TabIndex = 4;
+            this.txtStreet.Validating += new System.ComponentModel.CancelEventHandler(this.txtStreet_Validating);
             // 
             // txtName
             // 
@@ -172,6 +175,7 @@
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(379, 20);
             this.txtName.TabIndex = 3;
+            this.txtName.Validating += new System.ComponentModel.CancelEventHandler(this.txtName_Validating);
             // 
             // lblCity
             // 
@@ -216,6 +220,28 @@
             this.grpOrder.TabStop = false;
             this.grpOrder.Text = "Order";
             // 
+            // numQuantity
+            // 
+            this.numQuantity.Location = new System.Drawing.Point(75, 63);
+            this.numQuantity.Maximum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numQuantity.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numQuantity.Name = "numQuantity";
+            this.numQuantity.Size = new System.Drawing.Size(48, 20);
+            this.numQuantity.TabIndex = 7;
+            this.numQuantity.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
             // lblRate
             // 
             this.lblRate.AutoSize = true;
@@ -239,6 +265,7 @@
             this.txtDescription.Size = new System.Drawing.Size(268, 20);
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
+            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // lblPrice
             // 
@@ -524,28 +551,6 @@
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
             // 
-            // numQuantity
-            // 
-            this.numQuantity.Location = new System.Drawing.Point(75, 63);
-            this.numQuantity.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numQuantity.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numQuantity.Name = "numQuantity";
-            this.numQuantity.Size = new System.Drawing.Size(48, 20);
-            this.numQuantity.TabIndex = 7;
-            this.numQuantity.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            // 
             // frmAssigment4
             // 
             this.AcceptButton = this.btnAdd;
@@ -574,6 +579,7 @@
             this.grpCustomer.PerformLayout();
             this.grpOrder.ResumeLayout(false);
             this.grpOrder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.grpShipping.ResumeLayout(false);
             this.grpShipping.PerformLayout();
             this.grpPayment.ResumeLayout(false);
@@ -581,7 +587,6 @@
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

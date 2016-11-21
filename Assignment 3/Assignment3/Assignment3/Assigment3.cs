@@ -1,6 +1,14 @@
 ﻿//Vu Le and Gerald Williams
 //Fall 2016
-//Assigment 4
+//Assigment 6
+/*C# Mail Order, Create a form to calculate cost of items inputed by user.
+ * Calculations based on whether:
+ * -Customer is new customer (Discount)
+ * -Customer location (Tax for Washington State)
+ * -Amount of items purchased (Handling)
+ * -Shipping charge
+ * Keep running totals for multiple Items.
+ */
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -53,10 +61,8 @@ namespace Assignment3
                 decTOTAL_DUE += decTOTAL;
                 //Hold count in variable for handling 
                 intNumberOfItems += intQuantity;
-                //Test Quantity Count (debugging) remove when finished
-                //txtCount.Text = intNumberOfItems.ToString();
                 //Clear description, quantity, price then focus back to description               
-                txtDescription.Clear();            
+                txtDescription.Clear();
                 txtPrice.Clear();
                 txtDescription.Focus();
                 //reset quantity to 1
@@ -154,20 +160,20 @@ namespace Assignment3
         {
             decimal decTaxAmount; //local variable
 
-            if (txtState.Text == "WA")
+            if (txtState.Text == "WA")//Test data
             {
-                decTaxAmount = (decTOTAL_DUE * decTAX_RATE);
+                decTaxAmount = (decTOTAL_DUE * decTAX_RATE);//If true multiply by our constant decTAX_RATE
             }
-            else
+            else//If false value set to 0m
             {
                 decTaxAmount = 0m;
             }
-            return decTaxAmount;
+            return decTaxAmount;//Return value set by method
         }
         // Get handling fee method 
         private decimal GetHandlingFee()
         {
-            switch (intNumberOfItems)
+            switch (intNumberOfItems)//Begin switch for case method
             {
                 case 1:
                 case 2:     // if value is 2 or less
@@ -181,38 +187,85 @@ namespace Assignment3
                     decHandlingCost = 5.5m;
                     break;
             }
-            return decHandlingCost;
+            return decHandlingCost;//Return case value of decHandlingCost
         }
         // Get shipping charge method 
         private decimal GetShippingCharge()
         {
-            decimal decShippingCost;
+            decimal decShippingCost;//Local variable for method
 
-            if (rdoExpress.Checked)
+            if (rdoExpress.Checked)//Test data
             {
-                decShippingCost = 13.25m;
+                decShippingCost = 13.25m;//If true (checked) cost 13.25
             }
             else
             {
-                decShippingCost = 5.75m;
+                decShippingCost = 5.75m;//If false cost 5.75
             }
 
-            return decShippingCost;
+            return decShippingCost;//Return value determined in method
         }
         // Get discount for new customer
         private decimal GetDiscount()
         {
-            decimal decDiscount;
+            decimal decDiscount;//Local variable for method
 
-            if (chkNew.Checked)
+            if (chkNew.Checked)//Test data
             {
-                decDiscount = decTOTAL_DUE * decNEW_DISCOUNT;
+                decDiscount = decTOTAL_DUE * decNEW_DISCOUNT;//If true (checked) apply constant decNEW_DISCOUNT 
             }
             else
             {
-                decDiscount = 0m;
+                decDiscount = 0m;//If false, set decDiscount to 0m
             }
             return decDiscount;
         }
+        //Validating txtName.Text
+        private void txtName_Validating(object sender, CancelEventArgs e)//Validating event created by double clicking n properties
+        {
+            if (txtName.Text == "")//If null value,
+            {
+                MessageBox.Show("Name required", "Input required");//then show error message.                
+                txtName.Focus();//Return focus to txtName
+            }
+        }
+        //Validating txtStreet
+        private void txtStreet_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtStreet.Text == "")//if null value,
+            {
+                MessageBox.Show("Street address required", "Input required");//then show error message.
+                txtStreet.Focus();//Return focus to txtStreet
+
+            }
+        }
+        //Validating txtCity
+        private void txtCity_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtCity.Text == "")//If null value,
+            {
+                MessageBox.Show("City required", "Input required");//then show error message.
+                txtCity.Focus();//Return focus to txtCity
+            }
+        }
+        //Validating mskZip
+        private void mskZip_Validating(object sender, CancelEventArgs e)
+        {
+            if (mskZip.Text.Trim(' ','-') == "")//If null value,
+            {
+                MessageBox.Show("Zip code required", "Input required");//then show error message.
+                mskZip.Focus();//Set focus to mskZip
+                mskZip.SelectAll();
+            }
+        }
+        //Validating txtDescription
+        private void txtDescription_Validating(object sender, CancelEventArgs e)
+        {
+            if (txtDescription.Text == "")//If null value,
+            {
+                MessageBox.Show("Description required", "Input required");//then show error message
+                txtDescription.Focus();//Set focus to txtDescription
+            }
+        }
     }
-}
+} 
