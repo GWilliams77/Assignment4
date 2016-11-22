@@ -75,6 +75,7 @@
             this.txtDate = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.rtfLink = new System.Windows.Forms.RichTextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.grpCustomer.SuspendLayout();
             this.grpOrder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numQuantity)).BeginInit();
@@ -82,6 +83,7 @@
             this.grpPayment.SuspendLayout();
             this.grpSummary.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // grpCustomer
@@ -235,7 +237,7 @@
             0});
             this.numQuantity.Name = "numQuantity";
             this.numQuantity.Size = new System.Drawing.Size(48, 20);
-            this.numQuantity.TabIndex = 7;
+            this.numQuantity.TabIndex = 4;
             this.numQuantity.Value = new decimal(new int[] {
             1,
             0,
@@ -550,6 +552,10 @@
             this.rtfLink.Text = "";
             this.rtfLink.LinkClicked += new System.Windows.Forms.LinkClickedEventHandler(this.rtfLink_LinkClicked);
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // frmAssigment4
             // 
             this.AcceptButton = this.btnAdd;
@@ -586,6 +592,7 @@
             this.grpSummary.ResumeLayout(false);
             this.grpSummary.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -639,6 +646,7 @@
         private System.Windows.Forms.RichTextBox rtfLink;
         private System.Windows.Forms.TextBox txtState;
         private System.Windows.Forms.NumericUpDown numQuantity;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 
