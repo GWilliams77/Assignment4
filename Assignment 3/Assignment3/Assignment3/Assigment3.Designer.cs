@@ -265,7 +265,6 @@
             this.txtDescription.Size = new System.Drawing.Size(268, 20);
             this.txtDescription.TabIndex = 3;
             this.txtDescription.TextChanged += new System.EventHandler(this.txtDescription_TextChanged);
-            this.txtDescription.Validating += new System.ComponentModel.CancelEventHandler(this.txtDescription_Validating);
             // 
             // lblPrice
             // 
